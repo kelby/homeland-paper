@@ -4,7 +4,7 @@ module Homeland
       isolate_namespace Homeland::Paper
 
       initializer 'homeland.paper.init' do |app|
-        if Setting.has_module?(:paper)
+        if defined?(Setting) && Setting.has_module?(:paper)
           Homeland.register_plugin do |plugin|
             plugin.name              = 'paper'
             plugin.display_name      = '资料'
